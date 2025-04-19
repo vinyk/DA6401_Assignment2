@@ -3,9 +3,9 @@ This project aims to build a CNN and train it on the [iNaturalist dataset](https
 
 ## Structure of the Repository
 1) The code is structured into 2 separate notebooks for Part A and Part B of the assignment.
-2) The notebook `Assignment_2_sweep.ipynb` includes the code for building the CNN model as specified for the assignment and running hyperparameter sweeps to find the best set.
+2) The notebook `Assignment_2_Sweep.ipynb` includes the code for building the CNN model as specified for the assignment and running hyperparameter sweeps to find the best set.
 3) The best model is then tested to find the test metrics (loss and accuracy).
-4) The notebook `Assignment_2_ft.ipynb` includes the code for fine-tuning a pre-trained model and logging the performance metrics.
+4) The notebooks `ft1.ipynb` and `ft2.ipynb` discuss two different strategies for fine-tuning a pre-trained model and logging the performance metrics.
 
 ## Running the notebooks
 1) Both the notebooks have been made to run cell by cell.
@@ -42,9 +42,23 @@ best_config = {
 }
 ```
 4) The highest **validation accuracy** achieved was **35.45%.**.
-5) The best test accuracy with this model was **40%**.
+5) The best test accuracy with this model was **31.41%**.
+6) This model is available as `best_model.pth`.
 
 ## Part B: Fine-tuning a Pre-trained Model
 1) `Resnet-50` was chosen as the pre-trained model.
-2) To fine-tume the model, I selected the method of freezing the parameters of all layers and training only the final layer.
-3) For 10 epochs, this gives **training and validation accuracy** of **71% and 67%** respectively.
+2) To fine-tume the model, I used two different strategies:
+
+### 1) Freeze All But Final Layer
+1) Freeze all layers: for `param in model.parameters(): param.requires_grad = False`
+2) Replace final layer (classifier head) with a new one suited to iNaturalist (e.g., 10 classes).
+3) Train only the final layer.
+4) For 10 epochs, this gives **training and validation accuracy** of **71% and 67%** respectively.
+5) The code for this approach is available in `ft1.ipynb`.
+
+### 2) Freeze Up to a Certain Block (e.g., Layer 3), Fine-Tune the Rest
+1) Freeze early layers (e.g., up to conv3 block in ResNet).
+2) Fine-tune higher-level features (closer to task-specific decision making).
+3) Use a smaller learning rate for pre-trained layers and higher for the new head.
+4) For 10 epochs, this gives **training and validation accuracy** of **100% and 75%** respectively.
+5) The code for this approach is available in `ft2.ipynb`.
