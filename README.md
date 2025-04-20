@@ -42,11 +42,11 @@ os.makedirs(extract_dir, exist_ok=True)
 with zipfile.ZipFile(zip_path, 'r') as zip_ref:
     zip_ref.extractall(extract_dir)
 ```
-
+Since the validation data had to be derived from the train folder, I renamed the val folder to test to avoid confusion.
 ## Part A: Training from Scratch
 1) The CNN model consists of consisting of 5 convolution layers. Each convolution layer is followed by an activation and a max-pooling layer. A dense layer follows 5 such conv-activation-maxpool blocks. The output layer contains 10 neurons (1 for each of the 10 classes).
 2) The data is divided into training and testing data, with 20% of the training data being set for validation using the `INaturalistDataModule` class.
-3) A `LitCNN' class has been designed that includes the CNN design along with the methods for calculating the performance metrics (losses and accuracies).
+3) A `LitCNN` class has been designed that includes the CNN design along with the methods for calculating the performance metrics (losses and accuracies).
 4) The hyperparameter sweeps have been then run keeping the number of epochs to be 10.
 5) The best hyperparameter set was found to be:
 ```
