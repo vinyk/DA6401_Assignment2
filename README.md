@@ -2,6 +2,12 @@
 This project aims to build a CNN and train it on the [iNaturalist dataset](https://storage.googleapis.com/wandb_datasets/nature_12K.zip). The data is divided into the train and test folder, with 20% of training data being set for validation.
 A `requirements.txt` file has been provided that specifies all the libraries used for the project.
 
+
+Github Repository: [Github Repo](https://github.com/vinyk/DA6401_Assignment2/)
+Wandb Report: [Wandb Report](https://api.wandb.ai/links/vinyk-sd-indian-institute-of-technology-madras/u1ghn5e3)
+
+Code Organization:  vinyk-sd-indian-institute-of-technology-madras-org
+
 ## Table of Contents
 
 - [Structure of the Repository](#structure-of-the-repository)
