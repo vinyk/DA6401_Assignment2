@@ -8,10 +8,11 @@ A `requirements.txt` file has been provided that specifies all the libraries use
 - [Running the notebooks](#running-the-notebooks)
 - [Part A: Training from Scratch](#part-a-training-from-scratch)
 - [Part B: Fine-tuning a Pre-trained Model](#part-b-fine-tuning-a-pre-trained-model)
-  - [1) Freeze All But Final Layer](#1-freeze-all-but-final-layer)
-  - [2) Freeze Up to a Certain Block](#2-freeze-up-to-a-certain-block)
+  - [Freeze All But Final Layer](#1-freeze-all-but-final-layer)
+  - [Freeze Up to a Certain Block](#2-freeze-up-to-a-certain-block)
 - [Sample Results](#sample-results)
-
+   - [Without Fine-Tuning](#without-fine-tuning)
+  - [With Fine-Tuning](#with-fine-tuning)
 ## Structure of the Repository
 1) The code is structured into 2 separate notebooks for Part A and Part B of the assignment.
 2) The notebook `Assignment_2_Sweep.ipynb` includes the code for building the CNN model as specified for the assignment and running hyperparameter sweeps to find the best set.
@@ -59,7 +60,7 @@ best_config = {
 6) This model is available as `best_model.pth`.
 
 ## Part B: Fine-tuning a Pre-trained Model
-1) `Resnet-50` was chosen as the pre-trained model.
+1) `ResNet-50` was chosen as the pre-trained model.
 2) Similar to the `Assignment_2_Sweep.ipynb` notebook, the dataset has been prepared using the same `INaturalistDataModule` class.
 3) The `FineTuner` class includes the methods for calculating all performance metrics.
 4) To fine-tume the model, I used two different strategies:
@@ -79,3 +80,14 @@ best_config = {
 5) The code for this approach is available in `ft2.ipynb`.
 
 ## Sample Results
+
+### Without Fine-Tuning
+![Without Fine-Tuning](Sample%20Results/base_model.png)
+
+These sample images generated using the base model indicate poor test accuracy with most classifications being wrong.
+
+### With Fine-Tuning
+![With Fine-Tuning](Sample%20Results/with_ft.png)
+
+These sample images generated using the fine-tuned `ResNet-50` model indicate a much better test accuracy with more classifications being right.
+
