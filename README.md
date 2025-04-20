@@ -4,6 +4,7 @@ A `requirements.txt` file has been provided that specifies all the libraries use
 
 
 Github Repository: [Github Repo](https://github.com/vinyk/DA6401_Assignment2/)
+
 Wandb Report: [Wandb Report](https://api.wandb.ai/links/vinyk-sd-indian-institute-of-technology-madras/u1ghn5e3)
 
 Code Organization:  vinyk-sd-indian-institute-of-technology-madras-org
